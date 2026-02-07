@@ -1,0 +1,166 @@
+/* Cyber-Minimalist Custom Styles */
+
+/* Base overrides */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Cursor */
+.cursor-dot,
+.cursor-outline {
+    pointer-events: none;
+    z-index: 9999;
+}
+
+body:hover .cursor-dot,
+body:hover .cursor-outline {
+    opacity: 1;
+}
+
+/* Hover state for cursor (expanded) */
+body.hovering .cursor-outline {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: rgba(190, 242, 100, 0.1);
+    /* cyber-lime in rgba */
+    border-color: transparent;
+}
+
+/* Matrix Canvas */
+#matrix {
+    filter: contrast(1.2) brightness(0.8);
+}
+
+/* Scroll Animations */
+.slide-in-bottom {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.slide-in-bottom.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.slide-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scanline Animation */
+@keyframes scanline {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.animate-scanline {
+    animation: scanline 2s linear infinite;
+}
+
+/* Skill Chip */
+.skill-chip {
+    padding: 0.5rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 9999px;
+    background: rgba(2, 6, 23, 0.5);
+    cursor: default;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease-out backwards;
+    animation-delay: var(--delay);
+}
+
+.skill-chip:hover {
+    border-color: #6366f1;
+    /* Indigo */
+    color: #bef264;
+    /* Lime */
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
+
+/* Selection */
+::selection {
+    background: #6366f1;
+    color: white;
+}
+
+/* --- Dynamic Experience Animations --- */
+
+/* 1. Line Drawing */
+.animate-draw {
+    height: 100% !important;
+}
+
+/* 2. Pop-in Effect for Connectors/Dots */
+.scale-100 {
+    transform: scale(1) !important;
+}
+
+/* 3. 3D Tilt Effect */
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.card-3d {
+    transition: transform 0.1s;
+}
+
+.card-inner {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+/* 4. Text Glow Pulse */
+@keyframes textGlow {
+    0%, 100% { text-shadow: 0 0 5px rgba(99, 102, 241, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(99, 102, 241, 0.8), 0 0 10px rgba(190, 242, 100, 0.5); }
+}
+
+.glow-text {
+    animation: textGlow 3s infinite alternate;
+}

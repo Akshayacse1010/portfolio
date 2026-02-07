@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshaya S | Backend Engineer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            dark: '#020617',
+                            indigo: '#6366f1',
+                            lime: '#bef264',
+                            slate: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['Courier New', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body
+    class="bg-cyber-dark text-slate-200 font-sans overflow-x-hidden selection:bg-cyber-indigo selection:text-white cursor-none">
+
+    <!-- Custom Cursor -->
+    <div
+        class="cursor-dot fixed w-2 h-2 bg-cyber-lime rounded-full pointer-events-none z-50 transition-transform duration-100 mix-blend-difference">
+    </div>
+    <div
+        class="cursor-outline fixed w-8 h-8 border border-cyber-lime rounded-full pointer-events-none z-50 transition-all duration-200 -translate-x-3 -translate-y-3 mix-blend-difference">
+    </div>
+
+    <!-- Matrix Background -->
+    <canvas id="matrix" class="fixed top-0 left-0 w-full h-full -z-10 opacity-5"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 backdrop-blur-md border-b border-white/5 bg-cyber-dark/80">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#"
+                class="text-2xl font-bold font-mono tracking-tighter text-cyber-indigo hover:text-cyber-lime transition-colors">
+                &lt;AS /&gt;
+            </a>
+            <ul class="hidden md:flex space-x-8 text-sm font-mono text-slate-400">
+                <li><a href="#experience" class="hover:text-cyber-lime transition-colors hover-trigger">01.
+                        Experience</a></li>
+                <li><a href="#work" class="hover:text-cyber-lime transition-colors hover-trigger">02. Projects</a></li>
+                <li><a href="#skills" class="hover:text-cyber-lime transition-colors hover-trigger">03. Skills</a></li>
+                <li><a href="#contact" class="hover:text-cyber-lime transition-colors hover-trigger">04. Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+            <div class="max-w-7xl w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
+
+                <!-- Left: Text Content -->
+                <div class="text-left space-y-6 slide-in-bottom" style="--delay: 0.1s">
+                    <div
+                        class="inline-block px-3 py-1 rounded-full bg-cyber-indigo/10 border border-cyber-indigo/30 text-cyber-indigo font-mono text-sm mb-4">
+                        <span class="animate-pulse">●</span> Available for hire
+                    </div>
+
+                    <h1
+                        class="text-6xl md:text-8xl font-black tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400">
+                        AKSHAYA <span class="text-stroke-cyber text-cyber-lime">S</span>
+                    </h1>
+
+                    <div class="p-4 bg-cyber-slate/30 border-l-2 border-cyber-lime backdrop-blur-sm max-w-lg">
+                        <p class="font-mono text-cyber-lime text-sm mb-1">> system_status_check</p>
+                        <p class="text-slate-300 font-mono text-sm md:text-base h-6 flex items-center">
+                            <span class="text-cyber-indigo mr-2">></span> <span id="typing-text"></span><span
+                                class="animate-pulse">_</span>
+                        </p>
+                    </div>
+
+                    <p class="text-slate-400 text-lg md:text-xl max-w-lg leading-relaxed">
+                        Engineering high-performance backends & distributed systems.
+                    </p>
+
+                    <div class="flex gap-4 pt-4">
+                        <a href="#work"
+                            class="px-8 py-3 bg-cyber-indigo text-white font-bold rounded hover:bg-cyber-indigo/80 transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] hover:-translate-y-1 hover-trigger">
+                            View Work
+                        </a>
+                        <a href="#contact"
+                            class="px-8 py-3 border border-slate-600 text-slate-300 font-bold rounded hover:border-cyber-lime hover:text-cyber-lime transition-all hover-trigger">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Profile Image -->
+                <div class="relative flex justify-center md:justify-end slide-in-bottom" style="--delay: 0.3s">
+                    <!-- Decorative Elements behind image -->
+                    <div
+                        class="absolute inset-0 bg-cyber-indigo/20 blur-[100px] rounded-full transform translate-x-10 translate-y-10">
+                    </div>
+
+                    <div class="relative w-64 h-64 md:w-96 md:h-96 animate-float">
+                        <div
+                            class="absolute inset-0 rounded-full border-2 border-cyber-indigo/30 border-dashed animate-spin-slow">
+                        </div>
+                        <img src="images/profile.png" alt="Akshaya S"
+                            class="w-full h-full object-cover rounded-full border-4 border-cyber-slate glow-border relative z-10">
+
+                        <!-- Floating badges -->
+                        <div
+                            class="absolute -right-4 top-10 bg-cyber-slate/80 backdrop-blur border border-white/10 p-3 rounded-lg shadow-xl animate-bounce-slow">
+                            <i class="fab fa-java text-3xl text-cyber-indigo"></i>
+                        </div>
+                        <div class="absolute -left-8 bottom-20 bg-cyber-slate/80 backdrop-blur border border-white/10 p-3 rounded-lg shadow-xl animate-bounce-slow"
+                            style="animation-delay: 1s">
+                            <i class="fas fa-database text-2xl text-cyber-lime"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 flex items-center gap-4">
+                <span class="text-cyber-indigo font-mono text-xl">01.</span> Experience
+                <div class="h-px bg-slate-700 flex-grow max-w-xs"></div>
+            </h2>
+
+            <!-- Circuit Board Timeline (Dynamic) -->
+            <div id="timeline-container" class="relative max-w-4xl mx-auto">
+                <!-- Vertical Line (Draws on scroll) -->
+                <div id="timeline-line"
+                    class="absolute left-0 md:left-[29.166%] top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyber-indigo via-cyber-lime to-cyber-indigo h-0 transition-all duration-[2000ms] ease-out shadow-[0_0_15px_#6366f1]">
+                </div>
+
+                <!-- Role 1 -->
+                <div
+                    class="relative pl-8 md:pl-0 md:grid md:grid-cols-12 gap-0 items-start opacity-0 timeline-item group">
+                    <!-- Mobile Dot -->
+                    <div
+                        class="timeline-dot absolute -left-[5px] top-2 w-3 h-3 rounded-full bg-cyber-dark border border-cyber-lime shadow-[0_0_10px_#bef264] scale-0 transition-transform duration-500 delay-500 md:hidden z-10">
+                    </div>
+
+                    <!-- Date (3 Cols) -->
+                    <div class="md:col-span-3 text-slate-400 font-mono text-sm md:text-right pt-2 pr-8 md:pr-4">
+                        May 2025 – Present
+                    </div>
+
+                    <!-- Spine (1 Col) - Desktop Only -->
+                    <div class="hidden md:flex md:col-span-1 justify-center pt-3 relative">
+                        <div
+                            class="w-4 h-4 rounded-full bg-cyber-dark border-2 border-cyber-indigo timeline-connector scale-0 transition-all duration-500 delay-500 z-10 shadow-[0_0_5px_#6366f1]">
+                        </div>
+                    </div>
+
+                    <!-- Card (8 Cols) -->
+                    <div class="md:col-span-8 relative card-3d perspective-1000">
+                        <div
+                            class="card-inner p-6 bg-cyber-slate/20 border border-white/5 rounded-xl hover:bg-cyber-slate/40 transition-all duration-300 hover:border-cyber-indigo/30 hover:shadow-[0_0_20px_rgba(99,102,241,0.1)] group-hover:translate-x-2">
+                            <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyber-lime transition-colors">
+                                Member Technical Staff</h3>
+                            <div class="text-cyber-indigo font-mono mb-4 text-sm">ZOHO Corp Pvt Ltd</div>
+                            <ul class="list-disc list-outside ml-4 space-y-2 text-slate-400 text-sm leading-relaxed">
+                                <li>Engineered core backend logic for <span class="text-gray-200 glow-text">Shift & Pay
+                                        Scheduling</span> for 10,000+ employees.</li>
+                                <li>Optimized high-volume SQL queries reducing report generation time by <span
+                                        class="text-cyber-lime glow-text">20%</span>.</li>
+                                <li>Collaborated on robust Time-Off Tracking System reducing operational overhead.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 2 -->
+                <div
+                    class="relative pl-8 md:pl-0 md:grid md:grid-cols-12 gap-0 items-start opacity-0 timeline-item group delay-200">
+                    <div
+                        class="timeline-dot absolute -left-[5px] top-2 w-3 h-3 rounded-full bg-cyber-dark border border-cyber-lime shadow-[0_0_10px_#bef264] scale-0 transition-transform duration-500 delay-700 md:hidden z-10">
+                    </div>
+
+                    <!-- Date -->
+                    <div class="md:col-span-3 text-slate-400 font-mono text-sm md:text-right pt-2 pr-8 md:pr-4">
+                        Aug 2024 – May 2025
+                    </div>
+
+                    <!-- Spine -->
+                    <div class="hidden md:flex md:col-span-1 justify-center pt-3 relative">
+                        <div
+                            class="w-4 h-4 rounded-full bg-cyber-dark border-2 border-cyber-indigo timeline-connector scale-0 transition-all duration-500 delay-700 z-10 shadow-[0_0_5px_#6366f1]">
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="md:col-span-8 relative card-3d perspective-1000">
+                        <div
+                            class="card-inner p-6 bg-cyber-slate/20 border border-white/5 rounded-xl hover:bg-cyber-slate/40 transition-all duration-300 hover:border-cyber-indigo/30 hover:shadow-[0_0_20px_rgba(99,102,241,0.1)] group-hover:translate-x-2">
+                            <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyber-lime transition-colors">
+                                Software Engineer Intern</h3>
+                            <div class="text-cyber-indigo font-mono mb-4 text-sm">ZOHO Corp Pvt Ltd</div>
+                            <ul class="list-disc list-outside ml-4 space-y-2 text-slate-400 text-sm leading-relaxed">
+                                <li>Designed People Management REST APIs reducing latency by <span
+                                        class="text-cyber-lime glow-text">40%</span>.</li>
+                                <li>Fixed critical backend bugs and inefficient SQL queries inside loops.</li>
+                                <li>Contributed to test-ready backend deployments using Java standards.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="work" class="py-24 max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 flex items-center justify-end gap-4">
+                <div class="h-px bg-slate-700 flex-grow max-w-xs"></div>
+                Projects <span class="text-cyber-indigo font-mono text-xl">.02</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Featured Project Card -->
+                <div
+                    class="group relative bg-cyber-slate/30 border border-white/5 rounded-lg overflow-hidden backdrop-blur-sm hover:border-cyber-indigo/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)] opacity-0 slide-in-bottom">
+                    <!-- Scanline Effect -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent translate-y-[-100%] group-hover:animate-scanline z-10 pointer-events-none">
+                    </div>
+
+                    <div class="p-8 relative z-20">
+                        <div class="flex justify-between items-start mb-6">
+                            <i
+                                class="far fa-folder text-4xl text-cyber-indigo group-hover:text-cyber-lime transition-colors"></i>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/akshaya/lovable" target="_blank"
+                                    class="text-slate-400 hover:text-white hover-trigger"><i
+                                        class="fab fa-github text-xl"></i></a>
+                                <a href="#" target="_blank" class="text-slate-400 hover:text-white hover-trigger"><i
+                                        class="fas fa-external-link-alt text-xl"></i></a>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-2 group-hover:text-cyber-indigo transition-colors">E-commerce
+                            Microservice</h3>
+                        <div class="text-xs font-mono text-cyber-lime mb-4">"Lovable" REST API</div>
+
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Architected a scalable RESTful API with Spring Boot & Hibernate. Implemented DTO patterns,
+                            server-side pagination, and dynamic filtering for high-performance data retrieval.
+                        </p>
+
+                        <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-300">
+                            <span class="px-2 py-1 bg-cyber-indigo/10 rounded text-cyber-indigo">Java</span>
+                            <span class="px-2 py-1 bg-cyber-indigo/10 rounded text-cyber-indigo">Spring Boot</span>
+                            <span class="px-2 py-1 bg-cyber-indigo/10 rounded text-cyber-indigo">MySQL</span>
+                            <span class="px-2 py-1 bg-cyber-indigo/10 rounded text-cyber-indigo">Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Project List Container -->
+                <div id="project-list" class="contents">
+                    <!-- JS will inject other projects here -->
+                </div>
+
+                <!-- Removed Add Project Button -->
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 flex items-center justify-center gap-4">
+                <span class="text-cyber-indigo font-mono text-xl">03.</span> Technical Arsenal
+            </h2>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="skill-chip hover-trigger flex items-center gap-2" style="--delay: 0s"><i
+                        class="fab fa-java text-lg"></i> Java</div>
+                <div class="skill-chip hover-trigger flex items-center gap-2" style="--delay: 0.1s"><i
+                        class="fas fa-leaf text-lg"></i> Spring Boot</div>
+                <div class="skill-chip hover-trigger flex items-center gap-2" style="--delay: 0.2s"><i
+                        class="fas fa-layer-group text-lg"></i> Data Structures</div>
+                <div class="skill-chip hover-trigger flex items-center gap-2" style="--delay: 0.3s"><i
+                        class="fas fa-database text-lg"></i> MySQL</div>
+                <div class="skill-chip hover-trigger flex items-center gap-2" style="--delay: 0.35s"><i
+                        class="fas fa-table text-lg"></i> Hibernate</div>
+                <div class="skill-chip hover-trigger flex items-center gap-2" style="--delay: 0.4s"><i
+                        class="fas fa-network-wired text-lg"></i> REST APIs</div>
+                <div class="skill-chip hover-trigger flex items-center gap-2" style="--delay: 0.5s"><i
+                        class="fab fa-docker text-lg"></i> Docker</div>
+                <div class="skill-chip hover-trigger flex items-center gap-2" style="--delay: 0.6s"><i
+                        class="fab fa-git-alt text-lg"></i> Git</div>
+                <div class="skill-chip hover-trigger flex items-center gap-2" style="--delay: 0.7s"><i
+                        class="fab fa-linux text-lg"></i> Linux</div>
+                <div class="skill-chip hover-trigger flex items-center gap-2" style="--delay: 0.8s"><i
+                        class="fas fa-sitemap text-lg"></i> System Design</div>
+                <div class="skill-chip hover-trigger flex items-center gap-2" style="--delay: 0.9s"><i
+                        class="fas fa-paper-plane text-lg"></i> Postman</div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 max-w-2xl mx-auto px-6 text-center mb-20">
+            <h2 class="text-4xl font-bold mb-6 text-gray-100">Get In Touch</h2>
+            <p class="text-slate-400 mb-10">
+                Currently building scalable backends at Zoho. My inbox is always open.
+            </p>
+            <a href="mailto:akshayacse1010@gmail.com"
+                class="inline-block px-8 py-4 border border-cyber-indigo text-cyber-indigo font-mono rounded hover:bg-cyber-indigo/10 hover:shadow-[0_0_20px_rgba(99,102,241,0.2)] transition-all duration-300 hover-trigger">
+                Say Hello
+            </a>
+
+            <div class="mt-16 flex justify-center gap-8 text-2xl text-slate-400">
+                <a href="https://linkedin.com/in/akshaya-s" target="_blank"
+                    class="hover:text-cyber-lime hover:-translate-y-1 transition-all hover-trigger"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/akshaya-s" target="_blank"
+                    class="hover:text-cyber-lime hover:-translate-y-1 transition-all hover-trigger"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://leetcode.com/akshaya-s" target="_blank"
+                    class="hover:text-cyber-lime hover:-translate-y-1 transition-all hover-trigger"><i
+                        class="fas fa-code"></i></a>
+            </div>
+
+            <footer class="mt-12 font-mono text-xs text-slate-600">
+                &copy; 2026 Akshaya S. Designed & Built using Tailwind & Spring Boot.
+            </footer>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
+<script src="js/script.js"></script>
+</body>
+
+</html>
