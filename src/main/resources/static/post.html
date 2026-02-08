@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Viewer | Akshaya S</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            dark: '#020617',
+                            indigo: '#6366f1',
+                            lime: '#bef264',
+                            slate: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'Courier New', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Marked.js for Markdown Rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Highlight.js for Code Syntax -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Editorial Typography */
+        .prose {
+            max-width: 65ch;
+            /* Optimal reading width */
+            margin: 0 auto;
+        }
+
+        .prose h1 {
+            @apply text-3xl md:text-4xl font-bold text-white mb-8 mt-12 leading-tight;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .prose h2 {
+            @apply text-2xl font-semibold text-slate-100 mb-6 mt-10;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .prose h3 {
+            @apply text-xl font-semibold text-slate-200 mb-4 mt-8;
+        }
+
+        .prose p {
+            @apply text-slate-300 mb-6 text-lg md:text-xl font-normal;
+            line-height: 1.8;
+            /* Editorial line height */
+            font-family: 'Georgia', serif;
+            /* Serif for body text looks more "editorial" */
+        }
+
+        /* Cyber-touch primarily on headers/code, keep body clean */
+        .prose code {
+            @apply font-mono text-sm bg-cyber-slate/50 px-1 py-0.5 rounded text-cyber-lime;
+        }
+
+        .prose pre {
+            @apply bg-[#1e1e1e] rounded-lg p-6 mb-8 border border-white/5 overflow-x-auto shadow-lg;
+        }
+
+        .prose pre code {
+            @apply bg-transparent p-0 text-sm text-slate-300;
+        }
+
+        .prose ul {
+            @apply list-disc list-outside ml-6 mb-6 text-slate-300 text-lg leading-relaxed;
+            font-family: 'Georgia', serif;
+        }
+
+        .prose blockquote {
+            @apply border-l-4 border-cyber-indigo pl-6 italic text-slate-400 my-10 text-xl leading-relaxed;
+            font-family: 'Georgia', serif;
+        }
+
+        .prose img {
+            @apply rounded-lg my-10 w-full shadow-lg border border-white/5;
+        }
+
+        .prose a {
+            @apply text-cyber-indigo underline decoration-1 underline-offset-4 hover:text-white transition-colors;
+        }
+
+        .prose strong {
+            @apply text-slate-100 font-semibold;
+        }
+    </style>
+</head>
+
+<body class="bg-cyber-dark text-slate-200 font-sans min-h-screen selection:bg-cyber-indigo selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 backdrop-blur-md border-b border-white/5 bg-cyber-dark/80">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html"
+                class="text-2xl font-bold font-mono tracking-tighter text-cyber-indigo hover:text-cyber-lime transition-colors">
+                &lt;AS /&gt;
+            </a>
+            <ul class="flex space-x-8 text-sm font-mono text-slate-400">
+                <li><a href="blog.html" class="hover:text-cyber-lime transition-colors">
+                        < BACK_TO_LOGS</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 max-w-3xl mx-auto">
+
+        <!-- Loading State -->
+        <div id="loading" class="text-center font-mono text-cyber-lime animate-pulse">
+            > Decrypting Payload...
+        </div>
+
+        <article id="post-content" class="hidden animate-fade-in-up">
+            <!-- Header -->
+            <header class="mb-12 text-center">
+                <div class="flex justify-center gap-2 mb-6" id="post-tags"></div>
+                <h1 id="post-title"
+                    class="text-4xl md:text-5xl font-black tracking-tight text-white mb-6 leading-tight"></h1>
+                <div class="flex justify-center items-center gap-4 text-sm font-mono text-slate-500">
+                    <span id="post-date"></span>
+                    <span class="w-1 h-1 bg-slate-500 rounded-full"></span>
+                    <span>AKSHAYA S</span>
+                </div>
+            </header>
+
+            <!-- Image -->
+            <div
+                class="mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(99,102,241,0.1)]">
+                <img id="post-image" src="" alt="Cover" class="w-full object-cover max-h-[500px]">
+            </div>
+
+            <!-- Content -->
+            <div id="markdown-body" class="prose max-w-none">
+                <!-- Content injected here -->
+            </div>
+        </article>
+
+    </main>
+
+    <footer class="border-t border-white/5 py-12 text-center text-slate-600 font-mono text-xs">
+        <a href="blog.html" class="hover:text-cyber-lime transition-colors">END_OF_FILE</a>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug');
+
+            if (!slug) {
+                window.location.href = 'blog.html';
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/blog/${slug}`);
+                if (!response.ok) throw new Error('Post not found');
+
+                const post = await response.json();
+
+                // Render Header
+                document.title = `${post.title} | Akshaya S`;
+                document.getElementById('post-title').textContent = post.title;
+                document.getElementById('post-date').textContent = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                document.getElementById('post-image').src = post.imageUrl || 'https://source.unsplash.com/random/1200x600?tech';
+
+                // Render Tags
+                const tagsContainer = document.getElementById('post-tags');
+                post.tags.forEach(tag => {
+                    const span = document.createElement('span');
+                    span.className = 'text-xs font-mono px-3 py-1 rounded-full bg-cyber-indigo/10 text-cyber-indigo border border-cyber-indigo/20';
+                    span.textContent = '#' + tag;
+                    tagsContainer.appendChild(span);
+                });
+
+                // Render Markdown Content
+                const contentDiv = document.getElementById('markdown-body');
+                contentDiv.innerHTML = marked.parse(post.content);
+
+                // Highlight Code
+                hljs.highlightAll();
+
+                // Show Content
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('post-content').classList.remove('hidden');
+
+            } catch (error) {
+                console.error(error);
+                document.getElementById('loading').innerHTML = '> ERROR: FILE_CORRUPTED or NOT_FOUND';
+                document.getElementById('loading').classList.add('text-red-500');
+            }
+        });
+    </script>
+</body>
+
+</html>

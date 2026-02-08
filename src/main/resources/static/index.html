@@ -60,12 +60,42 @@
                 class="text-2xl font-bold font-mono tracking-tighter text-cyber-indigo hover:text-cyber-lime transition-colors">
                 &lt;AS /&gt;
             </a>
-            <ul class="hidden md:flex space-x-8 text-sm font-mono text-slate-400">
-                <li><a href="#experience" class="hover:text-cyber-lime transition-colors hover-trigger">01.
-                        Experience</a></li>
-                <li><a href="#work" class="hover:text-cyber-lime transition-colors hover-trigger">02. Projects</a></li>
-                <li><a href="#skills" class="hover:text-cyber-lime transition-colors hover-trigger">03. Skills</a></li>
-                <li><a href="#contact" class="hover:text-cyber-lime transition-colors hover-trigger">04. Contact</a>
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8 text-sm font-mono text-slate-200">
+                <li><a href="#experience" class="hover:text-cyber-lime transition-colors hover-trigger">/experience</a>
+                </li>
+                <li><a href="#work" class="hover:text-cyber-lime transition-colors hover-trigger">/projects</a></li>
+                <li><a href="#skills" class="hover:text-cyber-lime transition-colors hover-trigger">/skills</a></li>
+                <li><a href="blog.html"
+                        class="hover:text-cyber-lime transition-colors hover-trigger text-cyber-indigo">/logs</a></li>
+                <li><a href="#contact" class="hover:text-cyber-lime transition-colors hover-trigger">/contact</a></li>
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn"
+                class="md:hidden text-cyber-indigo hover:text-cyber-lime hover-trigger focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-cyber-dark/95 border-b border-white/10 backdrop-blur-xl absolute w-full left-0 top-full">
+            <ul class="flex flex-col p-6 space-y-4 font-mono text-slate-200 text-lg">
+                <li><a href="#experience"
+                        class="block hover:text-cyber-lime hover:translate-x-2 transition-all hover-trigger mobile-link">/experience</a>
+                </li>
+                <li><a href="#work"
+                        class="block hover:text-cyber-lime hover:translate-x-2 transition-all hover-trigger mobile-link">/projects</a>
+                </li>
+                <li><a href="#skills"
+                        class="block hover:text-cyber-lime hover:translate-x-2 transition-all hover-trigger mobile-link">/skills</a>
+                </li>
+                <li><a href="blog.html"
+                        class="block text-cyber-indigo hover:text-cyber-lime hover:translate-x-2 transition-all hover-trigger mobile-link">/logs</a>
+                </li>
+                <li><a href="#contact"
+                        class="block hover:text-cyber-lime hover:translate-x-2 transition-all hover-trigger mobile-link">/contact</a>
                 </li>
             </ul>
         </div>
@@ -349,10 +379,6 @@
     </main>
 
     <script src="js/script.js"></script>
-</body>
-
-</html>
-<script src="js/script.js"></script>
 </body>
 
 </html>
